@@ -8,11 +8,11 @@ We will here present some updates to the [SimpleMultisig](https://github.com/chr
 
 Recall that [EIP712](https://eips.ethereum.org/EIPS/eip-712) is a signature scheme that allows structured data in JSON format to be digitally signed in a way where the signature can be easily verified in a smart contract. Before EIP712 if you wanted to sign some data using an Ethereum wallet to be verified in a smart contract your only option was to basically sign an opaque hash:
 
-![](files/metamask_no_eip712.png)
+![](https://github.com/christianlundkvist/blog/blob/master/2019_02_05_simple_multisig_updates/files/metamask_no_eip712.png)
 
 This is both a bad user experience as well as problematic from a security perspective, since the user does not know what they are signing. Using EIP712 as the signature scheme the user is instead presented with the following structured data:
 
-![](files/metamask_eip712.png)
+![](https://github.com/christianlundkvist/blog/blob/master/2019_02_05_simple_multisig_updates/files/metamask_eip712.png)
 
 Here the user can see directly the details of what they are signing, which is both a better experience and more secure. The MetaMask browser plugin supports EIP712 and since the EIP is now finalized we should expect more wallets to take advantage of it.
 
@@ -20,7 +20,7 @@ To test out the EIP712 support in the SimpleMultiSig contract we include a [test
 
 # Audit and contract updates
 
-Recently ConsenSys Diligence wrapped up an audit of the SimpleMultiSig contract. The audit report is [avaliable here](files/multisig-diligence-audit.pdf). The audit report was positive and no major issues were found. In order to minimize replay attacks the report suggested adding an "executor" to the signed data. The executor is the Ethereum address sending the signature data to the contract. The addition of this data makes it so that only the executor can replay failed transactions, so it is a considerable mitigation of any risks of replay attacks.
+Recently ConsenSys Diligence wrapped up an audit of the SimpleMultiSig contract. The audit report is [avaliable here](https://github.com/christianlundkvist/blog/blob/master/2019_02_05_simple_multisig_updates/files/multisig-diligence-audit.pdf). The audit report was positive and no major issues were found. In order to minimize replay attacks the report suggested adding an "executor" to the signed data. The executor is the Ethereum address sending the signature data to the contract. The addition of this data makes it so that only the executor can replay failed transactions, so it is a considerable mitigation of any risks of replay attacks.
 
 It will still be possible to use the zero address as executor in which case anyone can send the transaction. This is useful in cases where replay attacks is not a big concern, and when you may have several people who should be able to send off a signed transaction.
 
