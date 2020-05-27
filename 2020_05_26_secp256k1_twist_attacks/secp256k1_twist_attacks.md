@@ -32,7 +32,7 @@ p = 1157920892373161954235709850086879078532699846656405640394575840079088346716
 
 We can define an "addition" operation on the points of an elliptic curve which is described visually as follows: Take two points `P`, `Q`. If the two points are different, take the line between the two points, intersect this line with the curve, then draw a vertical line through the intersection point. The point `P+Q` is defined as the intersection of this vertical line with the curve.  If we are adding a point with itself, i.e. `P+P = 2P` we instead take the tangent line to the curve, take the intersection of the tangent line with the curve, then take the vertical line as before.
 
-![](https://github.com/christianlundkvist/blog/blob/master/2020_secp256k1_twist_attacks/files/1024px-ECClines.svg.png?raw=true)
+![](https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/1024px-ECClines.svg.png?raw=true)
 
 If we compute the algebraic expression of the point `P+Q` we note that the constant `c2` is not used at all during the computation. We will come back to this later on.
 
@@ -329,7 +329,7 @@ Recovering the private key:
 In order to run the example code, download [Sage](https://sagemath.org) or create an account at [CoCalc](https://cocalc.com) in order to run the examples in a browser.
 
 
-[single_twist]: https://github.com/christianlundkvist/blog/blob/master/2020_secp256k1_twist_attacks/files/single_twist_attacks.sagews
-[compute_gens]: https://github.com/christianlundkvist/blog/blob/master/2020_secp256k1_twist_attacks/files/compute_low_order_generators.sagews
-[recover_key]: https://github.com/christianlundkvist/blog/blob/master/2020_secp256k1_twist_attacks/files/recover_private_key.sagews
+[single_twist]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/single_twist_attacks.sagews
+[compute_gens]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/compute_low_order_generators.sagews
+[recover_key]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/recover_private_key.sagews
 
