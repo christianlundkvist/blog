@@ -30,7 +30,9 @@ when computed modulo `p`, where `p` is the large prime number
 p = 115792089237316195423570985008687907853269984665640564039457584007908834671663.
 ```
 
-We can define an "addition" operation on the points of an elliptic curve which is described visually as follows: Take two points `P`, `Q`. If the two points are different, take the line between the two points, intersect this line with the curve, then draw a vertical line through the intersection point. The point `P+Q` is defined as the intersection of this vertical line with the curve.  If we are adding a point with itself, i.e. `P+P = 2P` we instead take the tangent line to the curve, take the intersection of the tangent line with the curve, then take the vertical line as before.
+We can define an "addition" operation on the points of an elliptic curve which is described visually as follows: Take two points `P`, `Q`. If the two points are different, take the line between the two points, intersect this line with the curve, then draw a vertical line through the intersection point. The point `P+Q` is defined as the intersection of this vertical line with the curve.
+
+If we are adding a point with itself, i.e. `P+= 2P` we instead take the tangent line to the curve, take the intersection of the tangent line with the curve, then take the vertical line as before.
 
 ![](https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/1024px-ECClines.svg.png?raw=true)
 
@@ -152,12 +154,14 @@ x1, x2, ... xm with x1 < n1, x2 < n2, ..., xm < nm
 ```
 
 there is a unique integer `x < n` such that
- ```
+
+```
 x1 = x mod n1, x2 = x mod n2, ..., xm = x mod nm.
 ```
 
 In this particular case we have
- ```
+
+```
 n1 = 3
 n2 = 13*13
 n3 = 3319
@@ -182,7 +186,7 @@ print(P)
 print(P.order())
 ```
 
-Alice can now give the point P to Bob, he will compute the "Shared secret" from P and his private key `b`:
+Alice can now give the point P to Bob, he will compute the "Shared secret" from `P` and his private key `b`:
 
 ```
 Q = b * P
@@ -329,7 +333,7 @@ Recovering the private key:
 In order to run the example code, download [Sage](https://sagemath.org) or create an account at [CoCalc](https://cocalc.com) in order to run the examples in a browser.
 
 
-[single_twist]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/single_twist_attacks.sagews
+[single_twist]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/single_twist_attack.sagews
 [compute_gens]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/compute_low_order_generators.sagews
 [recover_key]: https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/files/recover_private_key.sagews
 
