@@ -4,20 +4,22 @@
 
 I recently came across the following click-baity image floating around the internet:
 
-![](https://github.com/christianlundkvist/blog/blob/master/2020_07_07_integer_equation_puzzle/files/original_puzzle.jpg?raw=true)
+![](https://github.com/christianlundkvist/blog/blob/master/2020_07_07_integer_equation_puzzle/files/original_puzzle.png?raw=true)
 
-The image suggests a fun & simple math puzzle to spend a few minutes on. However, in this case in order to solve the problem you will need some heavy-duty mathematical machinery. Let’s dive in!
+The image suggests a fun & simple math puzzle to spend a few minutes on. However, in this case in order to solve the problem you will need some heavy-duty mathematical machinery.
 
 We will use the mathematical software package Sage for our calculations. The Sage code is in the following file:
 
 [integer_equation.sagews](https://github.com/christianlundkvist/blog/blob/master/2020_07_07_integer_equation_puzzle/files/integer_equation.sagews)
 
-If you don’t have Sage installed locally you can use it in a web browser at [CoCalc](https://cocalc.com) in order to run the calculations.
+If you don’t have Sage installed locally you can use it in a web browser at [CoCalc](https://cocalc.com) in order to run the calculations. Let’s dive in!
 
 ## Mathematical formulation and investigation
 
 We first formulate the problem as follows: Find positive, non-zero integers x, y, z such that 
-``` x/(y+z) + y/(x+z) + z/(x+y) = 4.
+
+```
+ x/(y+z) + y/(x+z) + z/(x+y) = 4.
 ```
 
 In order to get started, first multiply both sides of the above equation by `(y+z)*(x+z)*(x+y)`. We then get a cubic equation
@@ -44,7 +46,7 @@ y^2 + a_1*x*y + a_3*y = x^3 + a_2*x^2 + a_4*x + a_6
 
 where the coefficients `a_1, a_2, a_3, a_4, a_6` are rational. To do this we use the technique described in the following paper:
 
-<  https://trac.sageth.org/raw-attachment/ticket/3416/cubic_to_weierstrass_documentation.pdf>
+<  https://trac.samageth.org/raw-attachment/ticket/3416/cubic_to_weierstrass_documentation.pdf>
 
 This involves first choosing a rational point on our cubic curve. In our case we select the point 
 
@@ -102,7 +104,7 @@ Thus the Weierstrass coordinates for this elliptic curve are
 
 We can type these coordinates into the following database of elliptic curves:
 
-<  https://www.lmfdb.org/EllipticCurve/>
+<https://www.lmfdb.org/EllipticCurve/>
 
 This leads us to concluding that our elliptic curve is isomorphic to the curve defined here
 
