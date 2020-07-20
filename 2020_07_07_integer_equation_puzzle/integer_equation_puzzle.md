@@ -1,5 +1,7 @@
 # Integer equation puzzle
 
+*Christian Lundkvist, 2020-07-07*
+
 ## Introduction
 
 I recently came across the following click-baity image floating around the internet:
