@@ -1,6 +1,8 @@
 # Exploring Simpler Ethereum Multisig Contracts
 
-<a data-flickr-embed="true"  href="https://www.flickr.com/photos/bohman/210977249/in/photolist-jDjbM-dMJFJQ-9nzdKB-sfkKsa-2eJSqt-U7dMcR-TkPMsH-TcvQM9-U4fBmw-4z8EFP-h6X7n-62n5mh-a9Nx6f-tdAA-ewVsfL-7tjzTS-aRSAHR-d9BZC-eiiscF-Sabk6W-xs9bh-4DYUgR-7kRk5-4Zf9w4-6JySeH-5SisYK-fUDxBm-oDg9zG-VAYw6A-Sfwhtm-UxFuM1-S37LSL-Uq6m5K-UWP3vx-Ttiwqr-U7fpcU-ds26Et-5bNJoe-StzLyB-9BLazy-aJwrLa-a68oG-p35sbt-5ngbXL-97maTd-8aMaXb-WLMVMt-6pD1Tz-bkGVfG-aHuGXe" title="Keys."><img src="https://farm1.staticflickr.com/97/210977249_da533e62a4.jpg" width="500" height="375" alt="Keys."></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![](https://github.com/christianlundkvist/blog/blob/master/2017_08_11_exploring_simpler_multisig_contracts/files/keys.jpg?raw=true)
+
+*Christian Lundkvist, 2017-08-11*
 
 A couple of weeks ago a number of widely used Ethereum multisig wallets [were hacked](https://blog.ethcore.io/the-multi-sig-hack-a-postmortem/), to the tune of ~$32 million in Ethereum-based assets stolen. Another ~$160 million in assets [were preemptively taken and safeguarded](https://www.reddit.com/r/ethereum/comments/6povrc/the_whg_has_returned_95_of_the_funds_and_now_hold/) by a group of white-hat hackers.
 
@@ -12,7 +14,7 @@ The irony about these multisig wallet hacks is that multisig wallets are suppose
 
 There is an interesting tradeoff here: More logic in smart contracts can be used to implement more security features: timeouts, [spending limits](https://ethereum.stackexchange.com/questions/1261/mist-multisig-wallet-how-to-change-daily-withdrawal-limit), multisig, [vaults](http://hackingdistributed.com/2016/02/26/how-to-implement-secure-bitcoin-vaults/) etc. However, the more logic in the smart contract the bigger the attack surface and the more likely that bugs are introduced that risk undermining the security features.
 
-<a data-flickr-embed="true"  href="https://www.flickr.com/photos/105152118@N06/10759139564/in/photolist-hoKpmh-pSkHnq-7WyiZP-7NsGHm-7vbuDn-jDjbM-dMJFJQ-9nzdKB-sfkKsa-2eJSqt-U7dMcR-TkPMsH-TcvQM9-U4fBmw-4z8EFP-h6X7n-62n5mh-a9Nx6f-tdAA-ewVsfL-7tjzTS-aRSAHR-d9BZC-eiiscF-Sabk6W-xs9bh-4DYUgR-7kRk5-4Zf9w4-6JySeH-5SisYK-fUDxBm-oDg9zG-VAYw6A-Sfwhtm-UxFuM1-S37LSL-Uq6m5K-UWP3vx-Ttiwqr-U7fpcU-ds26Et-5bNJoe-StzLyB-9BLazy-aJwrLa-a68oG-p35sbt-5ngbXL-97maTd" title="key"><img src="https://farm3.staticflickr.com/2855/10759139564_3ef921225c.jpg" width="500" height="333" alt="key"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+![](https://github.com/christianlundkvist/blog/blob/master/2017_08_11_exploring_simpler_multisig_contracts/files/key_in_drawer.jpg?raw=true)
 
 We can consider a spectrum of asset-management tools from simplest to more complex. The simplest way to secure your Ether is to use a single private key which corresponds to an Ethereum address, sometimes known as an "End-user Owned Account". With this method there is no smart contract logic at all to worry about, so we've eliminated that risk. However, just using a single key also means you have a single point of failure.
 
@@ -20,7 +22,7 @@ At the other end of the spectrum you can create very elaborate wallet contracts 
 
 # A simple multisig contract
 
-![](https://gcn.com/~/media/GIG/GCN/Redesign/Articles/2013/July/2manrule.png)
+![](https://github.com/christianlundkvist/blog/blob/master/2017_08_11_exploring_simpler_multisig_contracts/files/2manrule.png?raw=true)
 
 We wanted to explore what the simplest possible multisig contract could look like. It should have the ability for a threshold of key holders to come together and move funds, but to maintain simplicity we do not want more advanced features like spending limits or the ability to update the signers.
 
@@ -96,7 +98,7 @@ Since we've made the on-chain logic as simple as possible the complexity increas
 
 # Future work: Formal verification
 
-![](https://ak2.picdn.net/shutterstock/videos/822988/thumb/3.jpg)
+![](https://github.com/christianlundkvist/blog/blob/master/2017_08_11_exploring_simpler_multisig_contracts/files/cyber.jpg?raw=true)
 
 The simplicity of the contract might make it a good candidate for creating a formal specification and performing a formal verification using that spec - mathematically proving that the code follows the specification. This may require rewriting the contract in a language where the compilation to EVM has been formally verified as well. Formal verification of the EVM is getting more attention recently with the recent [release of a formal semantics for the EVM](https://www.ideals.illinois.edu/handle/2142/97207).
 
