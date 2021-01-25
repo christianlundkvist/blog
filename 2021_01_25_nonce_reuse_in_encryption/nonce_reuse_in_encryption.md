@@ -132,7 +132,8 @@ x XOR x = 0
 for any 8-bit integer `x`.
 
 Let’s see how this is connected to our encryption situation. In this case if we reuse the nonce it means that the random pad used for both ciphertexts are the same. When XORing the ciphertexts together we get:
- ```
+
+```
 for i in range(len(message)):
   xor_str[i] = ciphertext1[i] XOR ciphertext2[i]
 ```
