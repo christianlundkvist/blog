@@ -4,7 +4,7 @@
 
 This post will discuss encryption and the role of the nonce therein, specifically what can happen if we reuse this number. We will focus on *symmetric encryption* meaning the system uses one secret key which is the same for encryption as for decryption. 
 
-Modern encryption libraries like [nacl](nacl.cr.yp.to) have encryption interfaces similar to the following:
+Modern encryption libraries like [nacl](https://nacl.cr.yp.to) have encryption interfaces similar to the following:
 
 ```
 ciphertext = encrypt(plaintext, nonce, secret_key)
